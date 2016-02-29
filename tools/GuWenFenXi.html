@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>文言知识简拆</title>
+<script type="text/javascript" src="../js/jquery-2.1.4.min.js"></script>
+
+<script type="text/javascript">
+    /*
+
+highlight v5
+
+Highlights arbitrary terms.
+
+<http://johannburkard.de/blog/programming/javascript/highlight-javascript-text-higlighting-jquery-plugin.html>
+
+MIT license.
+
+Johann Burkard
+<http://johannburkard.de>
+<mailto:jb@eaio.com>
+
+*/
+
+jQuery.fn.highlight = function(pat) {
+ function innerHighlight(node, pat) {
+  var skip = 0;
+  if (node.nodeType == 3) {
+   var pos = node.data.toUpperCase().indexOf(pat);
+   pos -= (node.data.substr(0, pos).toUpperCase().length - node.data.substr(0, pos).length);
+   if (pos >= 0) {
+    var spannode = document.createElement('span');
+    spannode.className = 'highlight';
+    var middlebit = node.splitText(pos);
+    var endbit = middlebit.splitText(pat.length);
+    var middleclone = middlebit.cloneNode(true);
+    spannode.appendChild(middleclone);
+    middlebit.parentNode.replaceChild(spannode, middlebit);
+    skip = 1;
+   }
+  }
+  else if (node.nodeType == 1 && node.childNodes && !/(script|style)/i.test(node.tagName)) {
+   for (var i = 0; i < node.childNodes.length; ++i) {
+    i += innerHighlight(node.childNodes[i], pat);
+   }
+  }
+  return skip;
+ }
+ return this.length && pat && pat.length ? this.each(function() {
+  innerHighlight(this, pat.toUpperCase());
+ }) : this;
+};
+
+jQuery.fn.removeHighlight = function() {
+ return this.find("span.highlight").each(function() {
+  this.parentNode.firstChild.nodeName;
+  with (this.parentNode) {
+   replaceChild(this.firstChild, this);
+   normalize();
+  }
+ }).end();
+};
+</script>
+<script type="text/javascript">  
+    /*  
+    * 参数说明:  
+    * obj: 对象, 要进行高亮显示的html标签节点.  
+    * hlWords: 字符串, 要进行高亮的关键词词, 使用 竖杠(|)或空格分隔多个词 .  
+    * bgColor: 背景颜色，默认为红色.  
+    */  
+    function MarkHighLight(obj, hlWords, bgColor) {  
+
+        hlWords = AnalyzeHighLightWords(hlWords);  
+
+        if (obj == null || hlWords.length == 0)  
+            return;  
+        if (bgColor == null || bgColor == "") {  
+            bgColor = "red";  
+        }  
+        MarkHighLightCore(obj, hlWords);  
+
+        //执行高亮标记的核心方法  
+        function MarkHighLightCore(obj, keyWords) {  
+            var re = new RegExp(keyWords, "i");  
+            var style = ' style="background-color:' + bgColor + ';" '  
+            for (var i = 0; i < obj.childNodes.length; i++) {  
+
+                var childObj = obj.childNodes[i];  
+                if (childObj.nodeType == 3) {  
+                    if (childObj.data.search(re) == -1) continue;  
+                    var reResult = new RegExp("(" + keyWords + ")", "gi");  
+                    var objResult = document.createElement("span");  
+                    objResult.innerHTML = childObj.data.replace(reResult, "<span" + style + ">$1</span>");  
+                    if (childObj.data == objResult.childNodes[0].innerHTML) continue;  
+                    obj.replaceChild(objResult, childObj);  
+                } else if (childObj.nodeType == 1) {  
+                    MarkHighLightCore(childObj, keyWords);  
+                }  
+            }  
+        }  
+
+        //分析关键词  
+        function AnalyzeHighLightWords(hlWords) {  
+            if (hlWords == null) return "";  
+            hlWordshlWords = hlWords.replace(/\s+/g, "|").replace(/\|+/g, "|");  
+            hlWordshlWords = hlWords.replace(/(^\|*)|(\|*$)/g, "");  
+
+            if (hlWords.length == 0) return "";  
+            var wordsArr = hlWords.split("|");  
+
+            if (wordsArr.length > 1) {  
+                var resultArr = BubbleSort(wordsArr);  
+                var result = "";  
+                for (var i = 0; i < resultArr.length; i++) {  
+                    resultresult = result + "|" + resultArr[i];  
+                }  
+                return result.replace(/(^\|*)|(\|*$)/g, "");  
+
+            } else {  
+                return hlWords;  
+            }  
+        }  
+
+        //利用冒泡排序法把长的关键词放前面     
+        function BubbleSort(arr) {  
+            var temp, exchange;  
+            for (var i = 0; i < arr.length; i++) {  
+                exchange = false;  
+                for (var j = arr.length - 2; j >= i; j--) {  
+                    if ((arr[j + 1].length) > (arr[j]).length) {  
+                        temp = arr[j + 1]; arr[j + 1] = arr[j]; arr[j] = temp;  
+                        exchange = true;  
+                    }  
+                }  
+                if (!exchange) break;  
+            }  
+            return arr;  
+        }  
+    }
+</script>  
+
+<script>
+// 通假字快查
+var lsTongJia = "不->否|世->逝|中->衷|为->谓|乡->向|于->吁|于->於|亡->无|从->纵|以->已|伏->服|信->伸|俨->严|倍->背|僇->戮|儋石->擔石|光->廣|免->娩|共->供|具->俱|内->纳|冥->溟|冯->凭|决->块|凶->兇|函胡->含糊|刑->型|剔->剃|匪->非|却->恰|厌->餍|厭->饜|厲->勵|县->悬|反->返|反->返|取->娶|受->授|句->勾|咨->諮|唱->倡|善->拭|嚮->向|嚮->響|圜->圆|坐->座|垂->陲|塗->途|失->佚|夷->怡|奉->捧|女->汝|媿->愧|孫->遜|孰->熟|孰->熟|尊->樽|尔->耳|屈->缺|属->嘱|已->以|已->矣|帅->率|希->稀|帖->贴|帘->奁|干->岸|底->抵|庭->廷|强->僵|彊->強|归->馈|当->倘|录->碌|得->德|忖->揣|志->誌|惠->慧|懽->歡|指->旨|指撝->指揮|振->震|摩->磨|摩厉->磨砺|攀->扳|支->肢|政->征|敛->殓|施->迤|族->眾|无->毋|景->影|暴->曝|曷->何|曾->层|有->又|机->几|板->版|枪->抢|案->按|止->只|每->们|没->冒|沽->酤|泮->畔|洼->窪|涂->途|濯->浊|灌->盥|火->伙|炎->焰|熙->嬉|父->甫|狡->娇|生->性|田->畋|由->犹|畔->叛|盖->盍|盤桓->徘徊|直->值|知->智|祗->只|离->罹|突->涂|简->拣|簡->揀|纫->韧|纽->扭|绰->戳|缪->穆|缾->瓶|罔->网|羞->馐|翼->翌|耆->嗜|而->尔|而->耐|耶->爷|耶孃->爺娘|肴->餚|與->歟|舍->捨|莫->暮|華->花|蓋->盍|蓐->褥|蚤->早|衡->横|被->披|裁->才|要->邀|见->现|詰詘->佶屈|詳->佯|說->悅|誼->義|譆->嘻|讎->仇|识->志|诎->屈|说->悦|说->脱|賓->儐|質->鑕|负->伏|责->债|质->贽|赀->资|趣->趋|趣->趨|距->拒|转->啭|辟->避|辩->辨|辩->变|辩->辨|还->旋|还->环|逝->誓|道->导|遙->搖|遯->遁|那->哪|邪->耶|邱->丘|郤->隙|采->彩|销->消|错->措|閒->間|闕->缺|闵->悯|阁->搁|阖->合|阙->缺|阳->佯|陇->垄|陵->凌|零丁->伶仃|顥->浩|颁->斑|颺->揚|食->饲|飨->享|驩->歡|齐->剂".split("|").map(function(v){return v.split("->")})
+
+tongjia = function(obj){
+    var re = []
+    var lsHtml = []
+    var e = document.getElementById("tongjiazi")
+    //var wd = document.getElementById("waiDiv");
+    lsTongJia.forEach(function(v){
+        if(obj.value.indexOf(v[0]) != -1){
+            //re[re.length] = v
+            lsHtml[lsHtml.length] = "<tr><td>"+v[0]+"</td><td>"+v[1]+"</td></tr>"
+            //MarkHighLight(wd, v[0], "Orange")
+            $('waiDiv').highlight(v[0]);
+        }
+    })
+
+    e.innerHTML=lsHtml.join("")
+}
+</script>
+<style type="text/css">
+    .highlight { background-color: yellow }
+</style>
+</head>
+<body>
+
+<div id='waiDiv'>
+    <textarea id='text' onchange='tongjia(this)'>
+
+　　八月一日，过烽火矶。南朝自武昌至京口，列置烽燧，此山当是其一也。自舟中望山，突兀而已。及抛江过其下，嵌岩窦穴，怪奇万状，色泽莹润，亦与它石迥异。又有一石，不附山，杰然特起，高百余尺，丹藤翠蔓，罗络其上，如宝装屏风。是日风静，舟行颇迟，又秋深潦（lǎo）缩，故得尽见。杜老所谓“幸有舟楫迟，得尽所历妙”也。
+　　过澎浪矶、小孤山，二山东西相望。 小孤属舒州宿松县，有戍兵。凡江中独山，如金山、焦山、落星之类，皆名天下，然峭拔秀丽皆不可与小孤比。自数十里外望之，碧峰巉（chán）然孤起，上干云霄，已非它山可拟，愈近愈秀，冬夏晴雨，姿态万变，信造化之尤物也。但祠宇极于荒残，若稍饰以楼观亭榭，与江山相发挥，自当高出金山之上矣。庙在山之西麓，额曰“惠济”，神曰“安济夫人”。绍兴初，张魏公自湖湘还，尝加营葺，有碑载其事。又有别祠在澎浪矶，属江州彭泽县，三面临江，倒影水中，亦占一山之胜。舟过矶，虽无风，亦浪涌，盖以此得名也。昔人诗有“舟中估客莫漫狂，小姑前年嫁彭郎”之句，传者因谓小孤庙有彭郎像，澎浪庙有小姑像，实不然也。晚泊沙夹，距小孤一里。微雨，复以小艇游庙中，南望彭泽、都昌诸山，烟雨空濛，鸥鹭灭没，极登临之胜，徙倚久之而归。方立庙门，有俊鹘抟水禽，掠江东南去，甚可壮也。庙祝云，山有栖鹘甚多。
+　　二日早，行未二十里，忽风云腾涌，急系缆。俄复开霁，遂行。泛彭蠡口，四望无际，乃知太白“开帆入天镜”之句为妙。始见庐山及大孤。大孤状类西梁，虽不可拟小姑之秀丽，然小孤之旁，颇有沙洲葭苇，大孤则四际渺弥皆大江，望之如浮水面，亦一奇也。江自湖口分一支为南江，盖江西路也。江水浑浊，每汲用，皆以杏仁澄之，过夕乃可饮。南江则极清澈，合处如引绳，不相乱。晚抵江州。州治德化县，即唐之浔阳县，柴桑、栗里，皆其地也；南唐为奉化军节度，今为定江军。岸土赤而壁立，东坡先生所谓“舟人指点岸如赪（chēng）”者也。泊湓浦，水亦甚清，不与江水乱。自七月二十六日至是，首尾才六日，其间一日阻风不行，实以四日半溯流行七百里云。
+    </textarea>
+
+    <h2>通假字快查</h2>
+    <table id='tongjiazi'>
+
+    </table>
+</div>
+
+</body>
+</html>

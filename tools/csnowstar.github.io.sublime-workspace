@@ -1,0 +1,1076 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"fi",
+				"function"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"revo",
+				"revolve"
+			],
+			[
+				"pin",
+				"pinBlink"
+			],
+			[
+				"rotate",
+				"rotatePen"
+			],
+			[
+				"delta",
+				"deltaLineL"
+			],
+			[
+				"print",
+				"println"
+			],
+			[
+				"setl",
+				"SetLineL"
+			],
+			[
+				"de",
+				"delay"
+			],
+			[
+				"steps",
+				"stepsPerRevolution"
+			],
+			[
+				"degre",
+				"degree"
+			],
+			[
+				"conf",
+				"config_file"
+			],
+			[
+				"deb",
+				"DebugLevel"
+			],
+			[
+				"loca",
+				"location_str"
+			],
+			[
+				"pas",
+				"_password"
+			],
+			[
+				"pos",
+				"post_dict"
+			],
+			[
+				"add",
+				"__add_word"
+			],
+			[
+				"__add",
+				"__add_sentence"
+			],
+			[
+				"sente",
+				"SentencePos"
+			],
+			[
+				"Sent",
+				"SentencePos"
+			],
+			[
+				"sp",
+				"split_chinese"
+			],
+			[
+				"w",
+				"word"
+			],
+			[
+				"lss",
+				"lsSentenceText"
+			],
+			[
+				"te",
+				"text_b"
+			],
+			[
+				"o",
+				"outputs"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "<!DOCTYPE html>\n<html>\n<head>\n<title>文言知识简拆</title>\n<script type=\"text/javascript\" src=\"../js/jquery-2.1.4.min.js\"></script>\n\n\n<script>\n// 通假字快查\nvar lsTongJia = \"不->否|世->逝|中->衷|为->谓|乡->向|于->吁|于->於|亡->无|从->纵|以->已|伏->服|信->伸|俨->严|倍->背|僇->戮|儋石->擔石|光->廣|免->娩|共->供|具->俱|内->纳|冥->溟|冯->凭|决->块|凶->兇|函胡->含糊|刑->型|剔->剃|匪->非|却->恰|厌->餍|厭->饜|厲->勵|县->悬|反->返|反->返|取->娶|受->授|句->勾|咨->諮|唱->倡|善->拭|嚮->向|嚮->響|圜->圆|坐->座|垂->陲|塗->途|失->佚|夷->怡|奉->捧|女->汝|媿->愧|孫->遜|孰->熟|孰->熟|尊->樽|尔->耳|屈->缺|属->嘱|已->以|已->矣|帅->率|希->稀|帖->贴|帘->奁|干->岸|底->抵|庭->廷|强->僵|彊->強|归->馈|当->倘|录->碌|得->德|忖->揣|志->誌|惠->慧|懽->歡|指->旨|指撝->指揮|振->震|摩->磨|摩厉->磨砺|攀->扳|支->肢|政->征|敛->殓|施->迤|族->眾|无->毋|景->影|暴->曝|曷->何|曾->层|有->又|机->几|板->版|枪->抢|案->按|止->只|每->们|没->冒|沽->酤|泮->畔|洼->窪|涂->途|濯->浊|灌->盥|火->伙|炎->焰|熙->嬉|父->甫|狡->娇|生->性|田->畋|由->犹|畔->叛|盖->盍|盤桓->徘徊|直->值|知->智|祗->只|离->罹|突->涂|简->拣|簡->揀|纫->韧|纽->扭|绰->戳|缪->穆|缾->瓶|罔->网|羞->馐|翼->翌|耆->嗜|而->尔|而->耐|耶->爷|耶孃->爺娘|肴->餚|與->歟|舍->捨|莫->暮|華->花|蓋->盍|蓐->褥|蚤->早|衡->横|被->披|裁->才|要->邀|见->现|詰詘->佶屈|詳->佯|說->悅|誼->義|譆->嘻|讎->仇|识->志|诎->屈|说->悦|说->脱|賓->儐|質->鑕|负->伏|责->债|质->贽|赀->资|趣->趋|趣->趨|距->拒|转->啭|辟->避|辩->辨|辩->变|辩->辨|还->旋|还->环|逝->誓|道->导|遙->搖|遯->遁|那->哪|邪->耶|邱->丘|郤->隙|采->彩|销->消|错->措|閒->間|闕->缺|闵->悯|阁->搁|阖->合|阙->缺|阳->佯|陇->垄|陵->凌|零丁->伶仃|顥->浩|颁->斑|颺->揚|食->饲|飨->享|驩->歡|齐->剂\".split(\"|\").map(function(v){return v.split(\"->\")})\n\ngetSentence = function(txt, pos){\n    lsBiaoDian = [\"，\",\"。\",\"；\",\"？\",\"“\",\"”\"]\n    posL = Math.max.apply(null, lsBiaoDian.map(function(v){return txt.lastIndexOf(v, pos)}).filter(function(v){return v!=-1}))\n    posR = Math.min.apply(null, lsBiaoDian.map(function(v){return txt.indexOf(v, pos)}).filter(function(v){return v!=-1}))\n    console.log(posL, posR)\n    return txt.substr(posL, posR - posL)\n}\ntongjia = function(obj){\n    var re = []\n    var lsHtml = []\n    var e = document.getElementById(\"tongjiazi\")\n    //var wd = document.getElementById(\"waiDiv\");\n    lsTongJia.forEach(function(v){\n        var posTong = obj.value.indexOf(v[0]) \n        if(posTong != -1){\n            lsHtml[lsHtml.length] =\n            \"<tr>\"+\n                \"<td>\"+v[0]+\"</td>\"+\n                \"<td>\"+v[1]+\"</td>\"+\n                \"<td>\"+getSentence(obj.value, posTong)+\"</td>\"+\n            \"</tr>\"\n\n        }\n    })\n\n    e.innerHTML=lsHtml.join(\"\")\n}\n</script>\n<style type=\"text/css\">\n    \n</style>\n</head>\n<body>\n\n<div id='waiDiv'>\n    <textarea id='text' onchange='tongjia(this)' onload(>\n\n　　八月一日，过烽火矶。南朝自武昌至京口，列置烽燧，此山当是其一也。自舟中望山，突兀而已。及抛江过其下，嵌岩窦穴，怪奇万状，色泽莹润，亦与它石迥异。又有一石，不附山，杰然特起，高百余尺，丹藤翠蔓，罗络其上，如宝装屏风。是日风静，舟行颇迟，又秋深潦（lǎo）缩，故得尽见。杜老所谓“幸有舟楫迟，得尽所历妙”也。\n　　过澎浪矶、小孤山，二山东西相望。 小孤属舒州宿松县，有戍兵。凡江中独山，如金山、焦山、落星之类，皆名天下，然峭拔秀丽皆不可与小孤比。自数十里外望之，碧峰巉（chán）然孤起，上干云霄，已非它山可拟，愈近愈秀，冬夏晴雨，姿态万变，信造化之尤物也。但祠宇极于荒残，若稍饰以楼观亭榭，与江山相发挥，自当高出金山之上矣。庙在山之西麓，额曰“惠济”，神曰“安济夫人”。绍兴初，张魏公自湖湘还，尝加营葺，有碑载其事。又有别祠在澎浪矶，属江州彭泽县，三面临江，倒影水中，亦占一山之胜。舟过矶，虽无风，亦浪涌，盖以此得名也。昔人诗有“舟中估客莫漫狂，小姑前年嫁彭郎”之句，传者因谓小孤庙有彭郎像，澎浪庙有小姑像，实不然也。晚泊沙夹，距小孤一里。微雨，复以小艇游庙中，南望彭泽、都昌诸山，烟雨空濛，鸥鹭灭没，极登临之胜，徙倚久之而归。方立庙门，有俊鹘抟水禽，掠江东南去，甚可壮也。庙祝云，山有栖鹘甚多。\n　　二日早，行未二十里，忽风云腾涌，急系缆。俄复开霁，遂行。泛彭蠡口，四望无际，乃知太白“开帆入天镜”之句为妙。始见庐山及大孤。大孤状类西梁，虽不可拟小姑之秀丽，然小孤之旁，颇有沙洲葭苇，大孤则四际渺弥皆大江，望之如浮水面，亦一奇也。江自湖口分一支为南江，盖江西路也。江水浑浊，每汲用，皆以杏仁澄之，过夕乃可饮。南江则极清澈，合处如引绳，不相乱。晚抵江州。州治德化县，即唐之浔阳县，柴桑、栗里，皆其地也；南唐为奉化军节度，今为定江军。岸土赤而壁立，东坡先生所谓“舟人指点岸如赪（chēng）”者也。泊湓浦，水亦甚清，不与江水乱。自七月二十六日至是，首尾才六日，其间一日阻风不行，实以四日半溯流行七百里云。\n    </textarea>\n\n    <span>\n        <h2>通假字快查</h2>\n        <table id='tongjiazi'>\n\n        </table>\n    </span>\n    <span>\n        <h2>通假字快查</h2>\n        <table id='tongjiazi'>\n\n        </table>\n    </span>\n</div>\n\n</body>\n</html>\n",
+			"file": "GuWenFenXi.html",
+			"file_size": 5967,
+			"file_write_time": 131012860111136275,
+			"settings":
+			{
+				"buffer_size": 3424,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "丈人|指岳父。|老人、长辈。\n丈夫|妻之配偶。|男子。\n不好|坏。|不美丽。好，容貌美。\n不必|事理或情理上不需要。|不一定．\n不过|表转折关系的连词。|不超过。\n不避|不躲开|不次于。\n中国|中华人民共和国。|中原地区。如，\n中间|当中。|中，当中；间，夹杂着。\n举手|表赞同，或要求发言时的动作|①动手。②告别时的动作。\n乃|乃|竟然\n乘|乘|（辆）兵车\n于是|承接连词|在此。\n亡|亡|丢失、遗失\n交通|①往来通达。②各种运输和邮电事业的总称。|①勾结，②交互相通。\n亲戚|跟自己家庭有婚姻关系的家庭或它的成员。|内亲外戚，包括父母、伯叔、子侄及母、妻家中的人。\n从事|①做某种事情。②(按规定)处理。|可以泛指一般属官。\n从容|不慌不忙|文采华丽，纵横华丽的言辞。\n从而|表顺接的连词。|从，跟从：而，连词，连接的后一部分补述前面动作行为的目的。\n令|令|美好\n以为|认为|以，把；为，当做\n以往|过去。|从这里起到那里。\n会|会|适逢、刚好遇到\n会计|管理帐目收支等财务工作的人。|会，聚会；计，商议。\n作文|语文课里写文章的练习|写文章。\n便宜|物品价格低|方便。\n信|信|确实\n俾|俾|使\n倍|倍|通“背”\n假|假|借\n克|克|能\n其实|副词，表示所说的是实际情况(承上文而含转折)。|①它的果实。②那实际情况。\n具体|不抽象，不笼统。|具，具备，体，形体。\n再|再|两次\n函|函|盒子\n初一|农历每月第一天。|刚刚一开始．\n前进|向前行动或发展。|前，走上前；进，献上。\n北|北|败北、失败\n卑鄙|品性低劣。|卑，出身卑微；鄙，鄙陋．常用作谦词。\n卒|卒|①终于、最终 ②死 ③通“猝”\n南面|南方，表方位。|南，向南；面，面对，朝向。\n却|却|退后、退却\n厥|厥|其\n反复|重复|①扭转形势。②书信往返。\n口舌|由说话引起的是非、争吵|口和舌，指说话。\n可怜|①值得怜悯。②不值一提。|①可爱。②值得同情。\n向|向|从前、以前\n咸|咸|全部、都\n唯|唯|希望\n因|因|①沿袭，继续   ②趁机   ③通过，经由\n因为|表原因的连词。|于是写作了。\n固|固|本来、原来\n国|国|①首都、都城 ②地方\n地方|①指各省、市、县，与“中央”相对。②指非军事的部门、团体等，与“军队”相对。③区域。④部分。|地，土地；方，方圆。\n坐|坐|①犯罪 ②因为\n堪|堪|能承受、能禁受、能忍受\n处分|对犯罪的或犯错误的人给以处罚。|处置、处理。\n多|多|肯定、赞赏、歌颂\n如|如|去、到\n妻子|配偶(女方)。|妻和子女。\n委|委|把……交给\n存|存|拜访、看望、慰问\n学者|指在学术上有一定成就的人。|求学的人。\n安|安|哪里、怎么\n宣言|国家、政党或团体对重大问题公开表示意见的文告。|公开扬言。\n察|察|清\n寻|寻|不久\n少|少|责备、批评、嘲笑\n就|就|接近、靠近\n属|属|连缀、连接\n山东|山东省。|指战国时秦国殽山函谷关以东的楚、赵等六国。\n市|市|买\n幸|幸|①希望  ②皇帝到……去\n度|度|估计、考虑、想\n开张|商店开始营业。|不闭塞，广泛。\n弥|弥|①满 ②更加\n往往|常常|①处处。②时常，常常。\n徐|徐|慢\n徒|徒|白白、只是、空\n得|得|能\n微|微|如果没有\n怜|怜|爱惜\n恨|恨|遗憾\n恶|恶|怎么\n悉|悉|全部、都\n感激|因得到帮助而对人产生好感。|受感动而激奋。\n慷慨|①大方，不吝啬。②充满正气，意气激昂。|意气风发，情绪激昂。\n指示|上级对下级或长辈对晚辈说明处理某问题的原则和方法。|指给人看。\n故|故|①旧的、以前的、原来的 ②缘故 ③因此、所以\n故事|前后连贯、有吸引力，可用来讲述的事情。|先例、旧事。\n数|数|①计算 ②数落、列举罪行  ③几、几个、几次\n族|族|族灭\n无日|不知还有多少时候，很久|不久。\n无论|表示条件不同而结果不变的连词。|不要说，更不必说。\n无赖|流氓；刁钻泼辣，无理取闹|活泼好玩。\n既|既|已经、以后\n易|易|换\n春秋|①夏季、秋季；②时代名称|①年龄。②一年。\n智力|指人的记忆、观察、想象、思考、判断等。|智慧和力量。\n更衣|换衣服。|上厕所，讳饰的说法。\n曾|曾|竟\n有意|有心思；故意。|有某种想法、打算。\n期|期|整\n本|本|推究\n束手|无办法，与“无策”连用。|投降。\n横行|行动蛮横，依仗暴力胡作非为。|纵横驰骋。\n次|次|驻扎、停留\n殆|殆|几乎、大概\n殷勤|热情而周到。|关切、问候。\n比|比|等到\n烈士|为正义、为革命献出生命的人。|指有志于建立功业的人。\n爱|爱|吝啬\n爽|爽|差错\n牺牲|为正义而死。|作为祭品的牲畜。\n狱|狱|案子、案件\n率|率|大都、全部\n用心|读书用功或对事肯动脑筋(褒义)。|思想意识的活动(中性)。\n畔|畔|通“叛”\n留意|当心，注意|考虑。\n疾|疾|痛恨\n病|病|①困窘 ②缺点 ③担心 ④责备\n盖|盖|表示猜测、不确定的语气\n相|相|①表示动作只涉及一方，有指代作用  ②帮助、辅助\n短|短|说别人坏话、进谗言\n示|示|给……看\n祖父|父之父。|祖和父，祖辈和父辈。\n私|私|偏爱\n秋|秋|时间\n秋天|秋季。|秋，秋天；天，天空。\n类|类|像\n素|素|①白色 ②平素、平时\n约束|限制使不越出范围。|盟约。\n结束|发展或进行到最后阶段，不再继续。|整理好装束。\n绝境|没有出路的境地。|与外界隔绝的区域。\n美人|美貌女子。|指美貌女子，也可特指歌伎、宫妃。\n老大|同辈或同伙中排行第一或地位最高的人。|年龄大。\n肉食|肉类食物。|食肉。“肉食者”，指生活优裕的大官。\n胜|胜|①尽  ②能承受，胜任，禁得起  ③美好的\n胡|胡|怎么\n致|致|①表达  ②招致\n致意|表示问候|把自己的心意表达于人。\n薄|薄|迫近、接近\n虽然|表示让步关系的连词。|虽然如此，尽管这样。虽，虽然；然，如此，这样。\n行为|举动|行，品行；为，做。\n被|被|通“披”\n要|要|通“邀”\n见|见|①被 ②作第一人称代词\n视|视|比较\n让|让|责备\n许|许|多余、左右\n识|识|①知道、记得 ②标记\n诚|诚|确实、实在、的确\n请|请|①请允许我  ②拜访、看望  ③约请\n诸|诸|之、之于\n谢|谢|①谢罪、道歉 ②谢绝、拒绝 ③告诫、劝勉\n豪杰|才能杰出的人。|①有声望有地位的人。\n贼|贼|害、祸害\n趣|趣|①通“趋” ②通“促”\n过|过|拜访、看望\n适|适|到 刚\n速|速|招致\n遇|遇|对待\n遗|遗|送给\n鄙|鄙|①偏远地区 ②目光短浅\n间|间|①间隙、空余时间、偶然 ②暗中、悄悄 ③让其他人走开，然后才说 ④小路\n除|除|①台阶 ②任命、授予\n非常|表程度很深的副词|意外事故．\n靡|靡|没有\n鞠躬|弯身行礼。|恭敬谨慎地\n顾|顾|①只是 ②难道\n风流|①有业绩、有才华的。②指有才学而不拘礼法。③指与男女间的放荡行为有关的。|①杰出的人物或功业；英俊、杰出。②繁华的景象，流风余韵。\n鱼肉|鱼的肉|鱼和肉，意为被欺凌的对象(名词)。\n鼓|鼓|演奏",
+			"settings":
+			{
+				"buffer_size": 2879,
+				"line_ending": "Windows",
+				"name": "丈人|指岳父。|老人、长辈。"
+			}
+		},
+		{
+			"contents": "随便看看吧\n首页网络小说现代小说外国小说古典文学名人传记励志/成功书儿童文学作家列表\n当前位置: 主页 > 中国古代文学名著 > 文言文 > 高中文言文 > 陈情表 >\n古今异义分享到：QQ空间新浪微博腾讯微博人人网 0【回目录】\n古今异义\n\n1、九岁不行\n\n不行\n\n古义： 不能走路，这里指柔弱。 今义：不可以。\n\n2、举臣秀才\n\n秀才\n\n古义：优秀人才。今义：读书人的通称\n\n3、除臣洗马\n\n除\n\n古义：授予官职。今义：不包括在内。\n\n洗马\n\n古义：授予官职 太子随从。今义：给马洗身子。\n\n4、臣欲奉召奔驰\n\n奔驰\n\n古义：奔走效劳,这里指赴京就职。今义：迅速的跑。\n\n5、臣之辛苦\n\n辛苦\n\n古义：辛酸苦楚。今义：表身心劳苦，比喻艰难困苦，很疲倦的感觉。现多指工作和劳作的感受。\n\n6、则告诉不许\n\n告诉\n\n古义：申诉　。今义：向别人陈述;通知某事，使人知道。\n\n7、是以区区不能废远\n\n区区\n\n古义：拳拳，形容感情恳切。今义：小;少。形容微不足道。\n\n8 、至于成立\n\n至于\n\n古义：一直到....... 。今义：副词。表示事情达到某种程度；连词。表示另提一事或另一情况；到达。\n\n9、 至于成立\n\n成立\n\n古义：成人自立。今义：组织机构开始存在；理论意见，站得住脚。创立、建立。\n\n10、急于星火\n\n星火\n\n古义：流星的光，比喻急迫；今义：微小的光。\n\n【回目录】 上一篇：重点虚词 下一篇 ：一词多义\n0\n该内容对我有帮助\n",
+			"settings":
+			{
+				"buffer_size": 619,
+				"line_ending": "Windows",
+				"name": "随便看看吧"
+			}
+		},
+		{
+			"contents": "A\n1、绝境  古义：与世隔绝的地方。今义：无出路的境地。\n2、交通  古义：交错相通。    今义：主要用于称各种运输和邮电事业。    \n3、穷  古义：穷尽。  今义：经济贫困。\n4、鲜美  古义：鲜艳美丽。  今义：指（食物）味道好。\n5、布衣  古义：平民。   今义：棉布衣服。\n6、感激  古义：感动振奋。   今义：感谢。\n7、痛恨  古义：痛心、遗憾。   今义：无比憎恨。\n8、可以  古义：可以凭借。   今义：对某事表赞同。\n9、开张  古义：扩大。   今义：开业（多指商业部门）。\n10、涕  古义：泪。   今义：鼻涕。\n11、兵  古义：兵器。   今义：士兵。\n12、狱  古义：案件。   今义：监 犯人的地方（监狱）\n13、池  古义：护城河。   今义：小水塘、池塘。\n14、居  古义：停留、过了。   今义：居住、住所。\n15、走  古义：“跑”的意思。   今义：行走。\n16、汤  古义：热水。   今义：菜或面做的稀状食物。\n17、去  古义：离开。   今义：到……去\n18、但  古义：只，只不过。   今义：转折连词。\n19、妻子  古义：妻子和儿女。   今义：专指男子的配偶。\n20、其实  古义：它的果实，是两个词。    今义：表示所说的是实际情况。（承上文而含转折），是一个词。\n21、文理  古义：文采和道理。   今义：文章内容方面和词句方面的条理。\n22、致词  古义：对……说话。   今义：指在举行某种仪式时说勉励、感谢、祝贺、悼念等的话。\n23、再  古义：第二次。   今义：又一次。\n24、何苦  古义：怕什么。   今义：不值得做。\n25、捐  古义：丢弃。   今义：献出。\n26、烈士  古义：有雄心壮志的人。   今义：为正义事业而献身的人。\n27、虽然  古义：两个词，“虽”即“虽然”，“然”即“如此”“这样”。   今义：一个词。\n28、然而  古义：两个词。“然”代指上文所说的情况，“而”表示转折，等于说“如此（这样），可是……”。   今义：是一个表示转折的连词。\n29、所以  古义：a、表示行为凭借的方式、方法或依据，相当于“用来……的”，b、表示原因，相当于“……的原因”。  今义：是一个表示因果关系的连词。\n30、学者  古义：两个词，求学的人。   今义：指在学术上有一定成就的人。\n",
+			"settings":
+			{
+				"buffer_size": 999,
+				"line_ending": "Windows",
+				"name": "A"
+			}
+		},
+		{
+			"contents": "1．走\n    跑。\n2．但\n    只有，只要。|转折连词。\n3．常\n    经常。|平常，一般。\n4．去\n    离开。|到某—地方称“去”(古称“往”)。\n5．股\n    大腿。|屁股。\n6．几何\n    多少。|数学中的一门学科。\n7．芳草鲜美，落英缤纷。(陶渊明《桃花源记》) \n    鲜艳美丽。|食物新鲜，味道好。\n8．复前行，欲穷其林。(出处同上) \n    极，尽。|资财缺乏(古时用“贫”)\n9．阡陌交通，鸡犬相闻。(出处同上) \n    交错相通。|交通运输。\n10．问所从来。(出处同上) \n    从哪里来。|从过去到现在。\n11．率妻子邑人来此绝境。(出处同上) (1)妻子，\n    妻子儿女。|男子的配偶。 (2)绝境，\n    与世隔绝的地方。|没有出路的境地。\n12．无论魏晋。(出处同上) \n    不要说，更不必说。|连词，表无条件关系。\n13．便扶向路。(出处同上) \n    沿着，顺着。|扶持。\n14．诣太守，说如此。(出处同上) \n    像这样。|这样。\n15．欣然规往。（出处同上） \n    计划。|规则，成例。\n16．愿为市鞍马。（《木兰诗》） \n    买。|集市。\n17．木兰不用尚书郎。（出处同上） \n    不愿作。|没有必要。\n18．当户理红妆。（出处同上） \n    窗户。华语网|门\n19．坐我西阁床。（出处同上） \n    坐具。|卧具。\n20．出入无完裙。（杜甫《石壕吏》） \n    衣服。|裙子。\n21．天明登前途。（出处同上） \n    前面的路。|将来的光景。\n22．缘愁似个长。（李白《秋浦歌》） \n    这样。|量词。\n23．会宾客大宴。（林嗣环《口技》） \n    适逢，正赶上。|会见。\n24．于是宾客无不变色离席……（出处同上） \n    在这时。|因此。\n25．明有奇巧人曰王叔远。（魏学 《核舟记》） \n    特别手巧。|新奇而巧妙。\n26．吾数年来欲买舟而下，犹未能也。（彭端淑《为学》） \n    雇船。|买船。\n27．越明年，贫者自南海还。（出处同上） \n    及，到。|过了。\n28．邑人奇这，稍稍宾客其父。（王安石《伤仲永》） \n    渐渐。|稍微。\n29．孟尝君特鸡狗盗之雄耳。（王安石《读〈孟尝君传〉》） \n    只不过。|特殊，超出一般。\n30．自此，冀之南，汉之阴，无陇断焉。（《愚公移山》） \n    山岗高地。|把持和独占。[注：陇同垄]\n31．然而不能胜者，是天时不如地利也。（《〈孟子〉二章》） \n    这样却。|转折连词。\n32．人恒过，然后能改。（出处同上） \n    这样以后。|副词，表接着某种动作或情况之后。\n33．肉食者鄙。（《曹刿论战》） \n    浅陋。|粗俗，低下。\n34．牺牲玉帛，弗敢加也。（出处同上） （1）牺牲。\n    祭祀用的猪、牛、羊等。|为正义而献出生命。 （2）加。\n    虚夸，以少报多。|增加。\n35．小大之狱，虽不能察，必以情。（出处同上） \n    案件。|监狱。\n36．然后叹借者用心专，而少年之岁月为可惜也。（袁枚《黄生借书说》） \n    值得珍惜。|值得惋惜。\n37．先帝不以臣卑鄙。（诸葛亮《出师表》） \n    地位低微，见识浅陋。|言行恶劣\n38．今当远离，临表涕零。（出处同上） \n    眼泪。|鼻涕（古用“泗”）\n39．未尝不叹惜痛恨于桓灵也。（出处同上） \n    遗憾。|仇恨，怨恨。\n40．若毒之乎？（柳宗元《捕蛇者说》） （1华语网（www.thn21.com））若。\n    你。|像。（2）毒。\n    怨恨。|毒害，有毒的物质或事物。\n41．则久已病矣。（出处同上） \n    困苦不堪。|疾病。\n42．可怜白发生。（辛弃疾《破阵子·为陈同甫赋壮词以寄之》） \n    可惜，可叹。|值得怜悯。",
+			"settings":
+			{
+				"buffer_size": 1604,
+				"line_ending": "Windows",
+				"name": "1．走"
+			}
+		},
+		{
+			"contents": "C\n1、亲戚：今义：旁系亲属；古义：指父母兄弟，统指家里亲人。例如：臣所以去亲戚而事君者，徒慕君之高义也。（《史记·廉颇蔺相如列传》）\n2、妻子：今义：爱人（女方）；古义：妻和子女。例如：子布、元表诸人各顾妻子…… （《赤壁之战》）\n3、中国：今义：中华人民共和国；古义：中原地区。例如：若能以吴越之众与中国抗衡，不如早与之绝。 （《赤壁之战》）\n4、非常：今义：很、大（副词）；古义：意外事故（名词）；例如：所以遣将守关者，备他盗之出入与非常也。 （《鸿门宴》）\n5、所以：今义：表示因果关系的关联词；古义：①缘故（名词）；例如：余叩所以。（《狱中杂记》）②表原因的虚词。例如：臣所以去亲戚而事君者，徒慕君之高义也。（《廉颇蔺相如列传》）③用来，靠它来。例如：师者，所以传道受业解惑也。 （《师说》）\n6、不过：今义：转折连词，古义：不超过。例如：今以实校之，彼所将中国人，不过十五六万，且已久疲。 （《赤壁之战》）\n7、用心：今义：读书用功或对事肯动脑筋（褒义）；古义：思想意识的活动（中性）。例如：蚓无爪牙之利，筋骨之强，上食埃土，下饮黄泉，用心一也。 （《劝学》）\n8、无论：今义：表条件关系的关联词；古义：更不必说。例如：问今是何世，乃不知有汉，无论魏晋。 （《桃花源记》）\n9、稍稍：今义：稍微；古义：渐渐地、慢慢地。例如：宾客意少舒，稍稍正坐。 （《口技》）\n10、无日：今义：不知还有多少时候，很久；古义：不久。例如：事急而不断，祸至无日矣！ （《赤壁之战》）\n11、其实：今义：实际上（副词）；古义：①华语网（www.thn21.com）它的果实。例如：叶徒相似，其实味不同。（《晏子使楚》）②那实际情况。例如：盛名之下，其实难副。（《李固与黄琼书》）\n12、春秋：今义：①春季、\n13、美人：今义：美貌女子；古义：歌伎、宫妃。例如：秦王大喜，传以示美人及左右。 （《廉颇蔺相如列传》）\n14、左右：今义：①大致范围（方位词）。②控制（动词）。古义：侍卫人员。例如：王顾左右而言他。 （《孟子》）\n15、结束：今义：事情做完一个过程的完结。古义：整装。例如：婉贞于是率诸少年结束而出。 （《冯婉贞》）\n16、大风：今义：大的风；古义：麻疯病。例如：可以已大风。 （《捕蛇者说》）\n17、前进：今义：向前行进，思想进步；古义：前，走上前去；走，奉献。例如：相如前进缶，因跪请秦王。 （廉颇蔺相如列传）\n18、弟兄：今义：①同辈之间。②旧时军队称士兵。古义：有时单指兄。例如：我有亲父母，逼迫兼弟兄。 （《孔雀东南飞》）\n19、感激：今义：深深的感谢；古义：感，感动；激，奋激。例如：由是感激，遂许先帝以驱驰。 （《出师表》）\n20、初一：今义：农历每月的第一天；古义：刚刚开始。例如：初一交战，操军不利。 （《赤壁之战》） 21、即使：今义：表假设性让步连词；古义：即，就，让，叫。例如：即使吏卒共抱大巫妪投之河中。 《西门豹治邺》\n22、至于：今义：表示另提一事的连词；古义：终于达到某种程度。例如：至于颠覆，理固宜然。（《六国论》）\n23、行为：今义：举动；古义：行，品行；为，做。例如：华语网（www.thn21.com）吾社之行为士先者，为之声义。（《五人墓碑记》）\n24、地方：今义：①泛指空间的一部分。②民间。③地区。古义：①当地的事。例如：在外监司牧宇，亦皆含鄙成风，不以地方为意。（《方腊起义》）②土地方圆。例如：江东虽小，地方千里。（《项羽本纪》）③大地的形状是方的。例如：天圆地方。（《淮南子·天文训》）\n25、致意：今义：表示问候；古义：抒发心情。如：其存君兴国而欲反复之，一篇之中，三致意焉。 （《屈原列传》）\n26、有意：今义：故意，居心；古义：①愿意。例如：先生不羞，乃有意欲为文收责于薛乎？（《冯谖客孟尝君》） ②有某种打算。例如：将军岂有意乎？（《隆中对》）\n27、故事：今义：真实的或虚构的有人物有情节的事情；古义：先例、旧事。例如：苟以天下之大，而从六国破亡之故事，是又在六国下矣。（《六国论》）\n28、扶老：今义：扶着老人；古义：\n29、一切：今义：所有的；古义：一律、一概、任何。例如：岂可一切拘以定月哉。 （《梦溪笔谈》）\n30、鞠躬：今义：行礼。古义：①弯着身子。例如：我鞠躬不敢息。（《中山狼传》）②恭敬地、谨慎地。例如：鞠躬尽瘁，死而后已。（《后出师表》\n\n\n",
+			"settings":
+			{
+				"buffer_size": 1812,
+				"line_ending": "Windows",
+				"name": "C"
+			}
+		},
+		{
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "([\\u4e00-\\u9fa5]+)[^\\u4e00-\\u9fa5]+?古义(.*?)今义(.*?)",
+			"settings":
+			{
+				"buffer_size": 50,
+				"line_ending": "Windows",
+				"name": "([\\u4e00-\\u9fa5]+)[^\\u4e00-\\u9fa5]+?古义(.*?)今义(.*?)"
+			}
+		},
+		{
+			"contents": "",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "过小孤山大孤山.md",
+			"settings":
+			{
+				"buffer_size": 4400,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "是日风静，舟行颇迟，又秋深潦（lǎo）缩，故得尽见。杜老所谓“幸有舟楫迟，得尽所历妙”也。",
+			"settings":
+			{
+				"buffer_size": 45,
+				"line_ending": "Windows",
+				"name": "是日风静，舟行颇迟，又秋深潦（lǎo）缩，故得尽见。杜老所谓“幸有舟楫迟，得尽所历妙”也。"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				],
+				[
+					"Packages/User/Python.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/User/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 407.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"brow",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"space",
+				"Package Control: Disable Package"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"js",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"md",
+				"Markdown Preview: Save to HTML"
+			],
+			[
+				"ssmd",
+				"Set Syntax: Markdown"
+			],
+			[
+				"c++",
+				"Set Syntax: C++"
+			],
+			[
+				"ip",
+				"Package Control: Install Package"
+			],
+			[
+				"pci",
+				"Package Control: Install Package"
+			],
+			[
+				"Snippet: ",
+				"Snippet: if(…)"
+			],
+			[
+				"pc:i",
+				"Package Control: Install Package"
+			],
+			[
+				"pc:re",
+				"Package Control: Remove Package"
+			],
+			[
+				"align",
+				"Package Control: Install Package"
+			],
+			[
+				"pi",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 600.0
+	},
+	"console":
+	{
+		"height": 112.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/E/L/Web/csnowstar.github.io/tools/csnowstar.github.io.sublime-project",
+		"/C/Users/99759/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/99759/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
+		"/E/L/Python/snowseg/not_so_dirty.py",
+		"/E/L/Python/zhihu_crawler/crawler_main.py",
+		"/E/L/Python/zhihu_crawler/crawler_threading_version.py",
+		"/E/L/Python/zhihu_crawler/config.json",
+		"/E/L/Python/zhihu_crawler/Fail_answer.html",
+		"/E/L/Python/zhihu_crawler/last_page_in_topic.html",
+		"/E/L/Web/csnowstar.github.io/js/jquery-2.1.4.min.js",
+		"/E/L/Python/django/django/django/contrib/admin/static/admin/js/vendor/jquery/jquery.min.js",
+		"/E/L/Python/snowseg/test_text_2.txt",
+		"/E/L/Python/zhihu_crawler/answer.json",
+		"/E/oldBak/Program Files/WindowsApps/king.com.CandyCrushSodaSaga_1.59.300.0_x86__kgqvnymyfvs32/res_output/shared/bootstrap/fonts/bananasp_large.fnt",
+		"/D/F/OneDrive/T/ABBYYFineReaderCorporate/DefaultFont.fnt",
+		"/C/Program Files/WindowsApps/king.com.CandyCrushSodaSaga_1.59.300.0_x86__kgqvnymyfvs32/res_output/shared/bootstrap/fonts/bitmap_numbers.fnt",
+		"/E/oldBak/Program Files/WindowsApps/king.com.CandyCrushSodaSaga_1.59.300.0_x86__kgqvnymyfvs32/res_output/shared/bootstrap/fonts/bitmap_numbers.fnt",
+		"/E/$RECYCLE.BIN/S-1-5-21-1460888608-3083787558-2536187612-1001/$RLTUP1H/ABBYYFineReaderCorporate/DefaultFont.fnt",
+		"/C/Program Files/WindowsApps/king.com.CandyCrushSodaSaga_1.59.300.0_x86__kgqvnymyfvs32/res_output/shared/bootstrap/fonts/american_typewriter_bold.fnt",
+		"/C/Program Files/WindowsApps/king.com.CandyCrushSodaSaga_1.59.300.0_x86__kgqvnymyfvs32/res_output/shared/bootstrap/fonts/american_typewriter.fnt",
+		"/E/oldBak/Program Files/WindowsApps/king.com.CandyCrushSodaSaga_1.59.300.0_x86__kgqvnymyfvs32/res_output/shared/bootstrap/fonts/super_grotesk_offc_pro_regular.fnt",
+		"/C/Program Files/WindowsApps/king.com.CandyCrushSodaSaga_1.59.300.0_x86__kgqvnymyfvs32/res_output/king-fonts/fonts/king_super_grotesk_offc_pro_medium.fnt",
+		"/C/Program Files/WindowsApps/king.com.CandyCrushSodaSaga_1.59.300.0_x86__kgqvnymyfvs32/res_output/shared/bootstrap/fonts/super_grotesk_offc_pro_medium.fnt",
+		"/E/oldBak/Program Files/WindowsApps/king.com.CandyCrushSodaSaga_1.59.300.0_x86__kgqvnymyfvs32/res_output/king-fonts/fonts/king_super_grotesk_offc_pro_regular.fnt",
+		"/C/Program Files/WindowsApps/king.com.CandyCrushSodaSaga_1.59.300.0_x86__kgqvnymyfvs32/res_output/shared/bootstrap/fonts/bananasp_large.fnt",
+		"/E/oldBak/Program Files/WindowsApps/king.com.CandyCrushSodaSaga_1.59.300.0_x86__kgqvnymyfvs32/res_output/shared/bootstrap/fonts/american_typewriter_bold.fnt",
+		"/Z/B/人教版高中英语必修1~选修11 单词表(全) 带解释.txt",
+		"/C/Program Files (x86)/Arduino/libraries/Stepper/src/Stepper.cpp",
+		"/D/F/OneDrive/T/aardio/project/雪星图画机/lib/sscyan/serial.aau",
+		"/E/D/Chrome/串口GDIP数据可视化/lib/css/serial.aau",
+		"/Z/T/AAuto/project/WinTab测试/lib/css/wintab32.aau",
+		"/D/F/OneDrive/T/aardio/project/雪星图画机/lib/sscyan/unicode.aau",
+		"/E/L/Python/zhihu_crawler/user.json",
+		"/E/D/Chrome/997596%40gmail.com.p7b",
+		"/E/D/Chrome/oc-srt-1355289038877.srt",
+		"/E/L/Python/snowseg/snowseg5.0.py",
+		"/E/L/Python/snowseg/snowseg4.0.py",
+		"/C/Users/99759/Desktop/get-pip.py",
+		"/E/L/Python/snowseg/snowseg_test.py",
+		"/C/Users/99759/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/99759/AppData/Roaming/Sublime Text 3/Packages/User/Python.sublime-build",
+		"/E/L/Python/snowseg/snowseg2.0.py",
+		"/E/L/Python/snowseg/small_test.py",
+		"/E/L/Python/snowseg/test.py",
+		"/E/L/Python/snowseg/test_text.txt",
+		"/E/L/Python/snowseg/unicodeTest.py",
+		"/C/Program Files/Sublime Text 3/Packages/Python.sublime-package",
+		"/C/Users/99759/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/E/L/mcProject/17A/logs/latest.log",
+		"/C/Users/99759/AppData/Local/Temp/shadowsocks.log",
+		"/C/Users/99759/Downloads/GTA 5 Mods Online [1.28] - BY CasTieL - Youtube - CavalryGaming/Readme.txt",
+		"/C/Users/99759/OneDrive/L/ap/FastGTAOL/Publish/p/Profiles/Default.ppx",
+		"/C/Users/99759/OneDrive/L/ap/FastGTAOL/Publish/p/Settings.ini",
+		"/C/Users/99759/OneDrive/T/shadowsocks/gui-config.json",
+		"/C/Users/99759/OneDrive/L/ap/FastGTAOL/Publish/s/gui-config.json",
+		"/C/Users/99759/OneDrive/T/Sublime Text Build 3083 x64/Data/Packages/Alignment/Default (Windows).sublime-keymap",
+		"/C/Users/99759/OneDrive/T/Sublime Text Build 3083 x64/Data/Packages/User/Default (Windows).sublime-keymap",
+		"/D/L/mcProject/17A/sftp-config.json",
+		"/C/Users/99759/AppData/Roaming/Adobe/Adobe Photoshop CC 2015/Adobe Photoshop CC 2015 Settings/PSUserConfig.txt",
+		"/C/Users/99759/Downloads/HA-Proxifier328-LDR/汉化说明.txt",
+		"/E/documents/#曹操和诸葛亮在历史形象中的相似之处.txt",
+		"/E/documents/My Clippings.txt",
+		"/C/Users/99759/OneDrive/T/Wox-1.1.1/Plugins/Wox.Plugin.PluginManagement/plugin.json",
+		"/C/Users/99759/OneDrive/L/ap/FastGTAOL/Publish/SOCKS.C",
+		"/C/Users/99759/OneDrive/T/暗暗制作/暗暗说VB.txt",
+		"/C/Users/99759/Downloads/高二英语必修五人教版单词表.txt",
+		"/D/DL/ISO/CrackAdobeCC2015/Adobe 2015 Win替换破解补丁/替换补丁使用方法.txt",
+		"/C/Users/99759/OneDrive/T/FastKey/新建文本文档.txt",
+		"/C/Users/99759/AppData/Local/Temp/Temp1_Wox-1.1.1.zip/Wox.exe.config",
+		"/C/Users/99759/Downloads/沙耶之歌简体中文硬盘版/沙耶之歌简体中文硬盘版/注意.txt",
+		"/C/Users/99759/OneDrive/L/ap/csHOSTS/lib/win/ui/ctrl/vlistview.aau",
+		"/C/Users/99759/AppData/Local/Temp/7zO025A0FE3/table.aau",
+		"/C/Users/99759/AppData/Local/Temp/7zO025991E4/vlistview.aau",
+		"/C/Users/99759/AppData/Local/Temp/7zO025718B3/main.aau",
+		"/C/Users/99759/OneDrive/T/Sublime Text Build 3083 x64/Data/Packages/AutoAligner/aligner_command.py",
+		"/C/Users/99759/Desktop/沙耶之歌小说完整版.txt",
+		"/C/Users/99759/AppData/Local/Temp/Temp1_Saya xiaoshuowanzhengban.zip/沙耶之歌小说完整版.txt",
+		"/C/Windows/System32/drivers/etc/hosts",
+		"/C/mine/G/天际大陆/hmcl.log",
+		"/C/Users/99759/OneDrive/T/privoxy-3.0.23/config.txt",
+		"/C/Users/99759/OneDrive/T/privoxy-3.0.23/default.action"
+	],
+	"find":
+	{
+		"height": 58.0
+	},
+	"find_in_files":
+	{
+		"height": 138.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"|",
+			"今：",
+			"古：",
+			"江",
+			"今义：",
+			"江",
+			"^江",
+			"；|",
+			"||",
+			"|",
+			"^\\d+、",
+			"——",
+			"【古义】",
+			"【今义】",
+			"——",
+			" |",
+			"【古义】",
+			"——",
+			"【今义】",
+			"【古义】",
+			"——",
+			"——【今义】",
+			"max",
+			"min",
+			"txt",
+			"value",
+			"math",
+			"max",
+			"CTRL\\+ALt\\+P",
+			"space",
+			"project",
+			"switch",
+			"\\+p\"",
+			"obj",
+			"value",
+			"txt",
+			"div",
+			"lsTongJia",
+			"tongjia",
+			"lsTongJia",
+			"->",
+			"toUpperCase",
+			"makeUpperCase",
+			"\n",
+			"|",
+			"”通“",
+			"”同“",
+			"”通“",
+			"”",
+			"   ",
+			"\n    ",
+			" 戰于長勺。（《曹劌論戰》）\n已   矣   ",
+			"少",
+			"（",
+			"之",
+			"（ ",
+			"（",
+			"若稍饰以楼观亭榭，与江山相发挥",
+			"##",
+			"\\d",
+			"倒影",
+			" 倒影",
+			")",
+			"(",
+			"；",
+			". ",
+			"（",
+			"干",
+			"千",
+			"_traverse_topic",
+			"do_crawler",
+			"ZhihuAnalyse",
+			"_extra_info_key",
+			"_location",
+			"location",
+			"location item",
+			"login",
+			"Servo",
+			"rotatePen",
+			"RotateTo",
+			"Stepper",
+			"always",
+			"blink_turn",
+			"pinBlink",
+			"blink_function",
+			"Blinker",
+			"serial_turn",
+			"rotate",
+			"deltaLineR",
+			"theta",
+			" | ",
+			"deltaLineL",
+			"deltaLineR",
+			"long",
+			"chars",
+			"length",
+			"buffer",
+			"action",
+			"L",
+			"SetLineL",
+			"stepperL",
+			"Serial",
+			"serial",
+			"css",
+			"unicode",
+			"titleUnicode",
+			"OnPacket",
+			"subclass",
+			"theta",
+			"thetaL",
+			"_reverse",
+			"lineL",
+			"theta",
+			"lineL",
+			"theta",
+			"_stepsPerRevolution",
+			"lineL",
+			"stepperL",
+			"length",
+			"lineL",
+			"100",
+			"theta",
+			"degree",
+			"deltaLength",
+			"step",
+			"_pins_current",
+			"odd",
+			"even"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"\\1",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "GuWenFenXi.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3424,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1663,
+								1670
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"origin_encoding": "UTF-8",
+							"parser": "markdown",
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"target": "browser",
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 114.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2879,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								415,
+								415
+							]
+						],
+						"settings":
+						{
+							"auto_name": "丈人|指岳父。|老人、长辈。",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 619,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								353,
+								353
+							]
+						],
+						"settings":
+						{
+							"auto_name": "随便看看吧",
+							"incomplete_sync": null,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 720.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 999,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								730,
+								730
+							]
+						],
+						"settings":
+						{
+							"auto_name": "A",
+							"incomplete_sync": null,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1604,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								348,
+								348
+							]
+						],
+						"settings":
+						{
+							"auto_name": "1．走",
+							"incomplete_sync": null,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1812,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1812,
+								1812
+							]
+						],
+						"settings":
+						{
+							"auto_name": "C",
+							"incomplete_sync": null,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 50,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								50
+							]
+						],
+						"settings":
+						{
+							"auto_name": "([\\u4e00-\\u9fa5]+)[^\\u4e00-\\u9fa5]+?古义(.*?)今义(.*?)",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "过小孤山大孤山.md",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 4400,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4400,
+								4400
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 5857.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 45,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_name": "是日风静，舟行颇迟，又秋深潦（lǎo）缩，故得尽见。杜老所谓“幸有舟楫迟，得尽所历妙”也。",
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 46.0
+	},
+	"input":
+	{
+		"height": 49.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": false,
+	"output.exec":
+	{
+		"height": 423.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 432.0
+	},
+	"pinned_build_system": "",
+	"project": "csnowstar.github.io.sublime-project",
+	"replace":
+	{
+		"height": 88.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"jquery.min",
+				"django\\django\\django\\contrib\\admin\\static\\admin\\js\\vendor\\jquery\\jquery.min.js"
+			],
+			[
+				"conf",
+				"zhihu_crawler\\config.json"
+			],
+			[
+				".c",
+				"C:\\Users\\99759\\OneDrive\\L\\ap\\FastGTAOL\\Publish\\SOCKS.C"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 750.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"E:\\L\\Web\\snowstarcyan.com\\snowstarcyan.com.sublime-project"
+			],
+			[
+				"py",
+				"E:\\L\\Python\\Python.sublime-project"
+			]
+		],
+		"width": 570.0
+	},
+	"select_symbol":
+	{
+		"height": 588.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 1032.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": false,
+	"side_bar_visible": true,
+	"side_bar_width": 368.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

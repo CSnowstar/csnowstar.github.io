@@ -1,0 +1,630 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"fu",
+				"function"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"revo",
+				"revolve"
+			],
+			[
+				"pin",
+				"pinBlink"
+			],
+			[
+				"rotate",
+				"rotatePen"
+			],
+			[
+				"delta",
+				"deltaLineL"
+			],
+			[
+				"print",
+				"println"
+			],
+			[
+				"setl",
+				"SetLineL"
+			],
+			[
+				"de",
+				"delay"
+			],
+			[
+				"steps",
+				"stepsPerRevolution"
+			],
+			[
+				"degre",
+				"degree"
+			],
+			[
+				"conf",
+				"config_file"
+			],
+			[
+				"deb",
+				"DebugLevel"
+			],
+			[
+				"loca",
+				"location_str"
+			],
+			[
+				"pas",
+				"_password"
+			],
+			[
+				"pos",
+				"post_dict"
+			],
+			[
+				"add",
+				"__add_word"
+			],
+			[
+				"__add",
+				"__add_sentence"
+			],
+			[
+				"sente",
+				"SentencePos"
+			],
+			[
+				"Sent",
+				"SentencePos"
+			],
+			[
+				"sp",
+				"split_chinese"
+			],
+			[
+				"w",
+				"word"
+			],
+			[
+				"lss",
+				"lsSentenceText"
+			],
+			[
+				"te",
+				"text_b"
+			],
+			[
+				"o",
+				"outputs"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "tools/GuWenFenXi.html",
+			"settings":
+			{
+				"buffer_size": 3325,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				],
+				[
+					"Packages/User/Python.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/User/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 503.0,
+		"last_filter": "space",
+		"selected_items":
+		[
+			[
+				"space",
+				"Package Control: Disable Package"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"js",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"md",
+				"Markdown Preview: Save to HTML"
+			],
+			[
+				"ssmd",
+				"Set Syntax: Markdown"
+			],
+			[
+				"c++",
+				"Set Syntax: C++"
+			],
+			[
+				"ip",
+				"Package Control: Install Package"
+			],
+			[
+				"pci",
+				"Package Control: Install Package"
+			],
+			[
+				"Snippet: ",
+				"Snippet: if(…)"
+			],
+			[
+				"pc:i",
+				"Package Control: Install Package"
+			],
+			[
+				"pc:re",
+				"Package Control: Remove Package"
+			],
+			[
+				"align",
+				"Package Control: Install Package"
+			],
+			[
+				"pi",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 600.0
+	},
+	"console":
+	{
+		"height": 112.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/99759/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/99759/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
+		"/E/L/Python/snowseg/not_so_dirty.py",
+		"/E/L/Python/zhihu_crawler/crawler_main.py",
+		"/E/L/Python/zhihu_crawler/crawler_threading_version.py",
+		"/E/L/Python/zhihu_crawler/config.json",
+		"/E/L/Python/zhihu_crawler/Fail_answer.html",
+		"/E/L/Python/zhihu_crawler/last_page_in_topic.html",
+		"/E/L/Web/csnowstar.github.io/js/jquery-2.1.4.min.js",
+		"/E/L/Python/django/django/django/contrib/admin/static/admin/js/vendor/jquery/jquery.min.js",
+		"/E/L/Python/snowseg/test_text_2.txt",
+		"/E/L/Python/zhihu_crawler/answer.json",
+		"/E/oldBak/Program Files/WindowsApps/king.com.CandyCrushSodaSaga_1.59.300.0_x86__kgqvnymyfvs32/res_output/shared/bootstrap/fonts/bananasp_large.fnt",
+		"/D/F/OneDrive/T/ABBYYFineReaderCorporate/DefaultFont.fnt",
+		"/C/Program Files/WindowsApps/king.com.CandyCrushSodaSaga_1.59.300.0_x86__kgqvnymyfvs32/res_output/shared/bootstrap/fonts/bitmap_numbers.fnt",
+		"/E/oldBak/Program Files/WindowsApps/king.com.CandyCrushSodaSaga_1.59.300.0_x86__kgqvnymyfvs32/res_output/shared/bootstrap/fonts/bitmap_numbers.fnt",
+		"/E/$RECYCLE.BIN/S-1-5-21-1460888608-3083787558-2536187612-1001/$RLTUP1H/ABBYYFineReaderCorporate/DefaultFont.fnt",
+		"/C/Program Files/WindowsApps/king.com.CandyCrushSodaSaga_1.59.300.0_x86__kgqvnymyfvs32/res_output/shared/bootstrap/fonts/american_typewriter_bold.fnt",
+		"/C/Program Files/WindowsApps/king.com.CandyCrushSodaSaga_1.59.300.0_x86__kgqvnymyfvs32/res_output/shared/bootstrap/fonts/american_typewriter.fnt",
+		"/E/oldBak/Program Files/WindowsApps/king.com.CandyCrushSodaSaga_1.59.300.0_x86__kgqvnymyfvs32/res_output/shared/bootstrap/fonts/super_grotesk_offc_pro_regular.fnt",
+		"/C/Program Files/WindowsApps/king.com.CandyCrushSodaSaga_1.59.300.0_x86__kgqvnymyfvs32/res_output/king-fonts/fonts/king_super_grotesk_offc_pro_medium.fnt",
+		"/C/Program Files/WindowsApps/king.com.CandyCrushSodaSaga_1.59.300.0_x86__kgqvnymyfvs32/res_output/shared/bootstrap/fonts/super_grotesk_offc_pro_medium.fnt",
+		"/E/oldBak/Program Files/WindowsApps/king.com.CandyCrushSodaSaga_1.59.300.0_x86__kgqvnymyfvs32/res_output/king-fonts/fonts/king_super_grotesk_offc_pro_regular.fnt",
+		"/C/Program Files/WindowsApps/king.com.CandyCrushSodaSaga_1.59.300.0_x86__kgqvnymyfvs32/res_output/shared/bootstrap/fonts/bananasp_large.fnt",
+		"/E/oldBak/Program Files/WindowsApps/king.com.CandyCrushSodaSaga_1.59.300.0_x86__kgqvnymyfvs32/res_output/shared/bootstrap/fonts/american_typewriter_bold.fnt",
+		"/Z/B/人教版高中英语必修1~选修11 单词表(全) 带解释.txt",
+		"/C/Program Files (x86)/Arduino/libraries/Stepper/src/Stepper.cpp",
+		"/D/F/OneDrive/T/aardio/project/雪星图画机/lib/sscyan/serial.aau",
+		"/E/D/Chrome/串口GDIP数据可视化/lib/css/serial.aau",
+		"/Z/T/AAuto/project/WinTab测试/lib/css/wintab32.aau",
+		"/D/F/OneDrive/T/aardio/project/雪星图画机/lib/sscyan/unicode.aau",
+		"/E/L/Python/zhihu_crawler/user.json",
+		"/E/D/Chrome/997596%40gmail.com.p7b",
+		"/E/D/Chrome/oc-srt-1355289038877.srt",
+		"/E/L/Python/snowseg/snowseg5.0.py",
+		"/E/L/Python/snowseg/snowseg4.0.py",
+		"/C/Users/99759/Desktop/get-pip.py",
+		"/E/L/Python/snowseg/snowseg_test.py",
+		"/C/Users/99759/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/99759/AppData/Roaming/Sublime Text 3/Packages/User/Python.sublime-build",
+		"/E/L/Python/snowseg/snowseg2.0.py",
+		"/E/L/Python/snowseg/small_test.py",
+		"/E/L/Python/snowseg/test.py",
+		"/E/L/Python/snowseg/test_text.txt",
+		"/E/L/Python/snowseg/unicodeTest.py",
+		"/C/Program Files/Sublime Text 3/Packages/Python.sublime-package",
+		"/C/Users/99759/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/E/L/mcProject/17A/logs/latest.log",
+		"/C/Users/99759/AppData/Local/Temp/shadowsocks.log",
+		"/C/Users/99759/Downloads/GTA 5 Mods Online [1.28] - BY CasTieL - Youtube - CavalryGaming/Readme.txt",
+		"/C/Users/99759/OneDrive/L/ap/FastGTAOL/Publish/p/Profiles/Default.ppx",
+		"/C/Users/99759/OneDrive/L/ap/FastGTAOL/Publish/p/Settings.ini",
+		"/C/Users/99759/OneDrive/T/shadowsocks/gui-config.json",
+		"/C/Users/99759/OneDrive/L/ap/FastGTAOL/Publish/s/gui-config.json",
+		"/C/Users/99759/OneDrive/T/Sublime Text Build 3083 x64/Data/Packages/Alignment/Default (Windows).sublime-keymap",
+		"/C/Users/99759/OneDrive/T/Sublime Text Build 3083 x64/Data/Packages/User/Default (Windows).sublime-keymap",
+		"/D/L/mcProject/17A/sftp-config.json",
+		"/C/Users/99759/AppData/Roaming/Adobe/Adobe Photoshop CC 2015/Adobe Photoshop CC 2015 Settings/PSUserConfig.txt",
+		"/C/Users/99759/Downloads/HA-Proxifier328-LDR/汉化说明.txt",
+		"/E/documents/#曹操和诸葛亮在历史形象中的相似之处.txt",
+		"/E/documents/My Clippings.txt",
+		"/C/Users/99759/OneDrive/T/Wox-1.1.1/Plugins/Wox.Plugin.PluginManagement/plugin.json",
+		"/C/Users/99759/OneDrive/L/ap/FastGTAOL/Publish/SOCKS.C",
+		"/C/Users/99759/OneDrive/T/暗暗制作/暗暗说VB.txt",
+		"/C/Users/99759/Downloads/高二英语必修五人教版单词表.txt",
+		"/D/DL/ISO/CrackAdobeCC2015/Adobe 2015 Win替换破解补丁/替换补丁使用方法.txt",
+		"/C/Users/99759/OneDrive/T/FastKey/新建文本文档.txt",
+		"/C/Users/99759/AppData/Local/Temp/Temp1_Wox-1.1.1.zip/Wox.exe.config",
+		"/C/Users/99759/Downloads/沙耶之歌简体中文硬盘版/沙耶之歌简体中文硬盘版/注意.txt",
+		"/C/Users/99759/OneDrive/L/ap/csHOSTS/lib/win/ui/ctrl/vlistview.aau",
+		"/C/Users/99759/AppData/Local/Temp/7zO025A0FE3/table.aau",
+		"/C/Users/99759/AppData/Local/Temp/7zO025991E4/vlistview.aau",
+		"/C/Users/99759/AppData/Local/Temp/7zO025718B3/main.aau",
+		"/C/Users/99759/OneDrive/T/Sublime Text Build 3083 x64/Data/Packages/AutoAligner/aligner_command.py",
+		"/C/Users/99759/Desktop/沙耶之歌小说完整版.txt",
+		"/C/Users/99759/AppData/Local/Temp/Temp1_Saya xiaoshuowanzhengban.zip/沙耶之歌小说完整版.txt",
+		"/C/Windows/System32/drivers/etc/hosts",
+		"/C/mine/G/天际大陆/hmcl.log",
+		"/C/Users/99759/OneDrive/T/privoxy-3.0.23/config.txt",
+		"/C/Users/99759/OneDrive/T/privoxy-3.0.23/default.action"
+	],
+	"find":
+	{
+		"height": 46.0
+	},
+	"find_in_files":
+	{
+		"height": 138.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"CTRL\\+ALt\\+P",
+			"space",
+			"project",
+			"switch",
+			"\\+p\"",
+			"obj",
+			"value",
+			"txt",
+			"div",
+			"lsTongJia",
+			"tongjia",
+			"lsTongJia",
+			"->",
+			"toUpperCase",
+			"makeUpperCase",
+			"\n",
+			"|",
+			"”通“",
+			"”同“",
+			"”通“",
+			"”",
+			"   ",
+			"\n    ",
+			" 戰于長勺。（《曹劌論戰》）\n已   矣   ",
+			"少",
+			"（",
+			"之",
+			"（ ",
+			"（",
+			"若稍饰以楼观亭榭，与江山相发挥",
+			"##",
+			"\\d",
+			"倒影",
+			" 倒影",
+			")",
+			"(",
+			"；",
+			". ",
+			"（",
+			"干",
+			"千",
+			"_traverse_topic",
+			"do_crawler",
+			"ZhihuAnalyse",
+			"_extra_info_key",
+			"_location",
+			"location",
+			"location item",
+			"login",
+			"Servo",
+			"rotatePen",
+			"RotateTo",
+			"Stepper",
+			"always",
+			"blink_turn",
+			"pinBlink",
+			"blink_function",
+			"Blinker",
+			"serial_turn",
+			"rotate",
+			"deltaLineR",
+			"theta",
+			" | ",
+			"deltaLineL",
+			"deltaLineR",
+			"long",
+			"chars",
+			"length",
+			"buffer",
+			"action",
+			"L",
+			"SetLineL",
+			"stepperL",
+			"Serial",
+			"serial",
+			"css",
+			"unicode",
+			"titleUnicode",
+			"OnPacket",
+			"subclass",
+			"theta",
+			"thetaL",
+			"_reverse",
+			"lineL",
+			"theta",
+			"lineL",
+			"theta",
+			"_stepsPerRevolution",
+			"lineL",
+			"stepperL",
+			"length",
+			"lineL",
+			"100",
+			"theta",
+			"degree",
+			"deltaLength",
+			"step",
+			"_pins_current",
+			"odd",
+			"even",
+			"            ",
+			"_pins_current",
+			"0",
+			"-",
+			"stepsPerRevolution",
+			"uint",
+			"int",
+			"_pins_current",
+			"counterclockwise",
+			"stepperR",
+			"stTurn",
+			"stepperL",
+			"counterclockwise",
+			"micros",
+			"( ",
+			"+",
+			"103",
+			"=\"B\"",
+			"+",
+			"rotate360",
+			"stepperR",
+			"Tunner",
+			"stepper",
+			"FALSE",
+			"micros",
+			"FALSE",
+			", ",
+			"my_turn"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"\\1",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "tools/GuWenFenXi.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3325,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3325,
+								3325
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"origin_encoding": "UTF-8",
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1644.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 46.0
+	},
+	"input":
+	{
+		"height": 49.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": false,
+	"output.exec":
+	{
+		"height": 423.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 432.0
+	},
+	"pinned_build_system": "",
+	"project": "csnowstar.github.io.sublime-project",
+	"replace":
+	{
+		"height": 88.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"jquery.min",
+				"django\\django\\django\\contrib\\admin\\static\\admin\\js\\vendor\\jquery\\jquery.min.js"
+			],
+			[
+				"conf",
+				"zhihu_crawler\\config.json"
+			],
+			[
+				".c",
+				"C:\\Users\\99759\\OneDrive\\L\\ap\\FastGTAOL\\Publish\\SOCKS.C"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 750.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"E:\\L\\Web\\csnowstar.github.io\\tools\\csnowstar.github.io.sublime-workspace"
+			]
+		],
+		"width": 570.0
+	},
+	"select_symbol":
+	{
+		"height": 588.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 1032.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": false,
+	"side_bar_visible": true,
+	"side_bar_width": 261.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
